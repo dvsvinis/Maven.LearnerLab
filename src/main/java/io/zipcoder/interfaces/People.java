@@ -6,53 +6,57 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class People{
-    
+public class People implements Iterable<Person>{
+
     private List<Person> personList = new ArrayList<Person>();
-    
-    
-    public void personAdd(Person person){
+
+
+    public void personAdd(Person person) {
         personList.add(person);
     }
-    
-    public Person findById(long id){
+
+    public Person findById(long id) {
         for (Person person : personList) {
             if (person.getId() == id)
                 return person;
-        }return null;
+        }
+        return null;
     }
 
-    public Boolean containsName(Person person){
+    public Boolean containsName(Person person) {
         return (personList.contains(person));
     }
 
-    public Boolean remove(Person person){
+    public Boolean remove(Person person) {
         return (personList.remove(person));
     }
 
-    public Boolean removeId(long id){
+    public Boolean removeId(long id) {
         for (Person person : personList) {
-            if (person.getId() == id){
+            if (person.getId() == id) {
                 personList.remove(person);
-            return true;
+                return true;
             }
         }
         return false;
     }
 
-    public void clearList(){
+    public void clearList() {
         personList.clear();
     }
 
-    public Integer countList(){
+    public Integer countList() {
         return personList.size();
     }
 
-    public Person[] toArray(){
+    public Person[] toArray() {
         Person[] output = new Person[personList.size()];
         return personList.toArray(output);
     }
 
+    public Iterator<Person> iterator() {
+        return this.iterator();
+    }
 }
 
 /* XX The class should instantiate a List field of Person objects named personList. 
