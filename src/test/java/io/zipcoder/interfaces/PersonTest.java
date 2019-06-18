@@ -23,15 +23,6 @@ public class PersonTest {
     }
 
     @Test
-    public void getId3() {
-        Person person = new Person(-6, "Abram C.");
-        long expected = -6;
-        assertEquals(expected, person.getId());
-        System.out.println(person.getId());
-    }
-
-
-    @Test
     public void getName() {
         Person person = new Person(1, "Abram C.");
         String expected = "Abram C.";
@@ -48,6 +39,32 @@ public class PersonTest {
         String actual = person.getName();
         assertEquals(expected, actual);
         System.out.println(person.getName());
+    }
+    @Test
+    public void testConstructor(){
+        //Given
+        String expectedName = "Abram";
+        long expectedId = 10l;
+
+        //When
+        Person person = new Person (expectedId, expectedName);
+
+        //Then
+        assertEquals(expectedId, person.getId());
+        assertEquals(expectedName, person.getName());
+    }
+
+    @Test
+    public void testSetName() {
+        //Given
+        Person person = new Person(0l, null);
+        String expectedName = "Jonah";
+
+        //When
+        person.setName(expectedName);
+
+        //Then
+        assertEquals(expectedName, person.getName());
     }
 
 }

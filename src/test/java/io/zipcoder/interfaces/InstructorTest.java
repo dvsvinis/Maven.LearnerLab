@@ -4,8 +4,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Assert;
 
-
-
 public class InstructorTest {
 
     @Test
@@ -23,23 +21,28 @@ public class InstructorTest {
 
     @Test
     public void testTeach() {
-        Student studentJL = new Student(25, "John Lennon");
-        double numberOfHours = 4.8;
-        studentJL.learn(numberOfHours);
+        Student s1 = new Student(25, "John Lennon");
+        Double numberOfHours = 4.8;
+        s1.learn(numberOfHours);
 
-        double expected = 4.8;
-        double actual = studentJL.getTotalStudyTime();
+        Double expected = 4.8;
+        Double actual = s1.getTotalStudyTime();
         assertEquals(expected, actual, .01);
-        System.out.println(studentJL.getTotalStudyTime());
+        System.out.println(s1.getTotalStudyTime());
     }
 
-    //?????
     @Test
     public void testLecture() {
-        double resultTotalStudyTime = 0.0;
-        Instructor instructor = new Instructor();
-  //      instructor.lecture();         //I don't know how to get the numberofHours
-
+        Instructor instructor = new Instructor(5l, "Kris");
+        Learner[] learners = new Learner[1];
+        Student s1 = new Student(25, "John Lennon");
+        learners[0] = s1;
+        System.out.println(learners[0].getTotalStudyTime());
+        Double numberOfHours = 3.0;
+        instructor.lecture(learners, numberOfHours);
+        System.out.println(learners[0].getTotalStudyTime());
+        Double expected = 3.0;
+        assertEquals(expected, s1.getTotalStudyTime());
     }
 }
 
@@ -48,5 +51,5 @@ public class InstructorTest {
 Create a testTeach method that ensures when an Instructor invokes the teach method, a respective
 student's totalStudyTime instance variable is incremented by the specified numberOfHours.
 Create a testLecture method that ensures when an Instructor invokes the lecture method,
-????a respective array of students' totalStudyTime instance variables is incremented by numberOfHours/students.length.
+a respective array of students' totalStudyTime instance variables is incremented by numberOfHours/students.length.
 */
