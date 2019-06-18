@@ -34,14 +34,15 @@ public class InstructorTest {
     @Test
     public void testLecture() {
         Instructor instructor = new Instructor(5l, "Kris");
-        Learner[] learners = new Learner[1];
+        Learner[] learners = new Learner[2];
         Student s1 = new Student(25, "John Lennon");
+        Student s2 = new Student(15, "Abram C.");
         learners[0] = s1;
-        System.out.println(learners[0].getTotalStudyTime());
-        Double numberOfHours = 3.0;
+        learners[1] = s2;
+        Double numberOfHours = 4.0;
         instructor.lecture(learners, numberOfHours);
         System.out.println(learners[0].getTotalStudyTime());
-        Double expected = 3.0;
+        Double expected = 2.0;  // 4 hours/2 students
         assertEquals(expected, s1.getTotalStudyTime());
     }
 }
