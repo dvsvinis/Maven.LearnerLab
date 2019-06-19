@@ -4,6 +4,6 @@ public interface Teacher {
 
     void teach(Learner learner, Double numberOfHours);
 
-    void lecture(Learner[] learners, Double numberOfHours);
+    void lecture(Person[] learners, Double numberOfHours);
 
 }
