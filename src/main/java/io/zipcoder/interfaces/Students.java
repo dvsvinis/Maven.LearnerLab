@@ -16,6 +16,10 @@ public final class Students extends People {
         return instance;
     }
 
+    public Student[] getStudentArray(){
+       return this.personList.toArray(new Student[personList.size()]);
+    }
+
 }
 
 /*

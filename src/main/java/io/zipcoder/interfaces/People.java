@@ -8,7 +8,7 @@ import java.util.List;
 
 public class People implements Iterable<Person>{
 
-    private List<Person> personList = new ArrayList<Person>();
+    public List<Person> personList = new ArrayList<Person>();
 
 
     public void personAdd(Person person) {

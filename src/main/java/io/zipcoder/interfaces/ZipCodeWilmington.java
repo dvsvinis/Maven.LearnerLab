@@ -9,10 +9,11 @@ public class ZipCodeWilmington {
     Instructors mentors = Instructors.getInstance();
 
     public void hostLecture(Teacher teacher, double numberOfHours) {
-        teacher.lecture(cohort.toArray(), numberOfHours);
+
+        ((Instructor)teacher).lecture(((Learner[])cohort.toArray()), numberOfHours);
     }
 
-    public void hostLecture2(long id, double numberOfHours){
+    public void hostLecturer(long id, double numberOfHours){
         Teacher test;
         test = (Teacher)(mentors.findById(id));
         test.lecture(cohort.toArray(), numberOfHours);
