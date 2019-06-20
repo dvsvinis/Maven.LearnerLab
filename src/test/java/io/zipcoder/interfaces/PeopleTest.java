@@ -11,10 +11,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PeopleTest {
+    private People <Person> people = new People<Person>(){};
+//    people = new People<Person>(){};
 
     @Test
     public void testAdd(){
-        People people = new People();
+ //       People people = new People();
+
         //Given
         Person person1 = new Person(11l, "John");
         Person person2 = new Person(22l, "Steve");
@@ -30,7 +33,7 @@ public class PeopleTest {
 
     @Test
     public void testAdd2(){
-        People people = new People();
+   //     People people = new People();
         //Given
         Person person1 = new Person(11l, "John");
         Person person2 = new Person(22l, "Steve");
@@ -45,7 +48,7 @@ public class PeopleTest {
 
     @Test
     public void testRemove(){
-        People people = new People();
+   //     People people = new People();
         //Given
         Person person1 = new Person( 11l, "Rob");
         Person person2 = new Person(22l, "Bob");
@@ -64,7 +67,7 @@ public class PeopleTest {
 
     @Test
     public void testFindById(){
-        People people = new People();
+   //     People people = new People();
         //Given
         Person person1 = new Person( 11l, "Rob");
         Person person2 = new Person(22l, "Bob");

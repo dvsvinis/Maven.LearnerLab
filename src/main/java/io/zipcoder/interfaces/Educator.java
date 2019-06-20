@@ -2,14 +2,18 @@ package io.zipcoder.interfaces;
 
 public enum Educator implements Teacher{
 
-    KRIS(new Instructor(100, "Kris")),
-    WILHEM(new Instructor( 150, "Wilhem")),
-    DOLIO(new Instructor(200, "Dolio"));
+
+
+    KRIS(new Instructor(100, "Kris"), 10.0),
+    WILHEM(new Instructor( 150, "Wilhem"), 15.0),
+    DOLIO(new Instructor(200, "Dolio"), 20.0);
 
     private final Instructor instructor;
+    private final Double timeWorked;
 
-    Educator(Instructor instructor) {
+    Educator(Instructor instructor, Double timeWorked) {
         this.instructor = instructor;
+        this.timeWorked = timeWorked;
     }
 
     public Instructor getInstructor() {
@@ -17,12 +21,13 @@ public enum Educator implements Teacher{
     }
 
     public void teach(Learner learner, Double numberOfHours) {
-
+        this.instructor.teach(learner, numberOfHours);
     }
 
-    public void lecture(Person[] learners, Double numberOfHours) {
-
+    public void lecture(Learner[] learners, Double numberOfHours) {
+        this.instructor.lecture(learners, numberOfHours);
     }
+
 }
 
 

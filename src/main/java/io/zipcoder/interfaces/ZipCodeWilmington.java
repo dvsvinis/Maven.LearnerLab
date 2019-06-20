@@ -6,17 +6,19 @@ import java.util.Map;
 public class ZipCodeWilmington {
 
     private Students cohort = Students.getInstance();
-    Instructors mentors = Instructors.getInstance();
+    private Instructors mentors = Instructors.getInstance();
 
     public void hostLecture(Teacher teacher, double numberOfHours) {
 
-        ((Instructor)teacher).lecture(((Learner[])cohort.toArray()), numberOfHours);
+   //     ((Instructor)teacher).lecture(((Learner[])cohort.toArray()), numberOfHours);
+        teacher.lecture(cohort.toArray(), numberOfHours);
     }
 
     public void hostLecturer(long id, double numberOfHours){
-        Teacher test;
-        test = (Teacher)(mentors.findById(id));
-        test.lecture(cohort.toArray(), numberOfHours);
+        Teacher host;
+        host = (Teacher)(mentors.findById(id));
+        host.lecture(cohort.toArray(), numberOfHours);
+
     }
 
     public Map<Student,Double> getStudyMap (){

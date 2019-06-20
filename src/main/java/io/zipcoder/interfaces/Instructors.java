@@ -1,7 +1,8 @@
 package io.zipcoder.interfaces;
 
-public class Instructors extends People {
-    private static final Instructors instance = new Instructors();
+
+public class Instructors extends People<Instructor> {
+    private static final Instructors INSTANCE = new Instructors();
 
     private Instructors() {
 //        Educator.DOLIO.getInstructor();
@@ -17,6 +18,12 @@ public class Instructors extends People {
     }
 
     public static Instructors getInstance() {
-        return instance;
+        return INSTANCE;
     }
+
+    @Override
+    public Instructor[] toArray() {
+        return (Instructor[]) super.personList.toArray(new Instructor[personList.size()]);
+    }
+
 }

@@ -1,38 +1,41 @@
 package io.zipcoder.interfaces;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+public abstract class People<E extends Person> implements Iterable<E> {
 
-public class People implements Iterable<Person>{
+    protected List<E> personList = new ArrayList<E>();
 
-    public List<Person> personList = new ArrayList<Person>();
+    public People() {
+        this.personList = new ArrayList<E>();
+    }
 
-
-    public void personAdd(Person person) {
+    public void personAdd(E person) {
         personList.add(person);
     }
 
-    public Person findById(long id) {
-        for (Person person : personList) {
+    public E findById(long id) {
+        for (E person : personList) {
             if (person.getId() == id)
                 return person;
         }
         return null;
     }
 
-    public Boolean containsName(Person person) {
+    public Boolean containsName(E person) {
         return (personList.contains(person));
     }
 
-    public Boolean remove(Person person) {
+    public Boolean remove(E person) {
         return (personList.remove(person));
     }
 
     public Boolean removeId(long id) {
-        for (Person person : personList) {
+        for (E person : personList) {
             if (person.getId() == id) {
                 personList.remove(person);
                 return true;
@@ -54,12 +57,32 @@ public class People implements Iterable<Person>{
         return personList.toArray(output);
     }
 
-    public Iterator<Person> iterator() {
+//    abstract public E[] toArray();
+
+    public Iterator<E> iterator() {
         return this.iterator();
     }
 }
 
-/* XX The class should instantiate a List field of Person objects named personList. 
+/* xxParameterize the People signature to enforce that it is a container for objects of type
+E such that E is a subclass of Person.
+xxModify the class signature to declare this class abstract.
+An abstract class cannot be instantiated; Its concrete implementation is deferred to its subclass.
+xxModify people field to enforce that is a container of objects of type E.
+xxModify the add method to ensure that it handles object of type E.
+xxModify the findById method to ensure that it returns an object of type E.
+xxModify the getArray method signature by declaring it abstract of return tyoe E.
+An abstract method is a subclass's contractual agreement to the deferment of an implementation of a respective method.
+
+
+
+
+
+
+
+
+
+XX The class should instantiate a List field of Person objects named personList.
 XX The class should define a method named add which adds a Person to the personList.
 xxThe class should define a method named findById which makes use of a long id parameter to return a
 Person object with the respective id field.
