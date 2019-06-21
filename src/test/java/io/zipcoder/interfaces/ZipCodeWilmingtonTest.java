@@ -18,13 +18,6 @@ public class ZipCodeWilmingtonTest {
 
     }
 
-    @Test
-    public void hostLecture2() {
-    }
-
-    @Test
-    public void getStudyMap() {
-    }
 }
 
 /*Create a testHostLecture method which ensures that each of the Student's totalStudyTime
